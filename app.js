@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-// const date = require(__dirname + '/date.js');
+
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const app = express();
@@ -46,13 +46,12 @@ const ListSchema = new mongoose.Schema({
 
 const List = mongoose.model('List', ListSchema);
 
-// const items = ["Add itmes"];
-// const workItems = ["Add work items"]
+
 
 //home route
 app.get("/", function(req, res) {
 
-  // const currentDay = date.getDay();
+
   Item.find({}, (err, items) => {
     if (err) {
       console.log(err);
