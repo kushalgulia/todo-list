@@ -6,18 +6,23 @@
 </div>
 
 <div class="box">
-  <% for(var v=0;v<itemList.length;v++){%>
-  <%if(itemList[v]!==""){%>
-  <div class="item">
-    <input type="checkbox" name="" value="">
-    <p><%= itemList[v]%></p>
-  </div>
 
-  <% } }%>
 
-  <form class="item" action=<%=url %> method="post">
+
+   <% itemList.forEach((item)=>{ %>
+     <form class="" action="/delete" method="post">
+     <div class="item">
+       <input type="checkbox" name="checkbox" value="<%= item._id%>" onChange="this.form.submit()">
+       <p> <%= item.name %></p>
+     </div>
+     <input type="hidden" name="listName" value="<%=heading%>">
+     </form>
+   <% }); %>
+
+
+  <form class="item" action='/' method="post">
     <input type="text" name="newItem" placeholder="New Item" autocomplete="off" autofocus>
-    <button type="submit" name="button">+</button>
+    <button type="submit" name="list" value="<%=heading%>">+</button>
   </form>
 </div>
 
